@@ -33,6 +33,8 @@ namespace WpfApp1
         {
             TcpClient server = new TcpClient("192.168.1.116", 23);
             networkStream = server.GetStream(); //ethernet
+
+            //Serial();
         }
 
         private void Serial()
