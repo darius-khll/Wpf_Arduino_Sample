@@ -31,34 +31,8 @@ namespace WpfApp1
 
         void Initial()
         {
-            int count = 0;
-            Line:
-            try
-            {
-                TcpClient server = new TcpClient("192.168.1.116", 23);
-                networkStream = server.GetStream(); //ethernet
-
-                //string port = Port.Text;
-                //mySerialPort = new SerialPort(port);
-
-                //mySerialPort.BaudRate = 9600;
-                //mySerialPort.Parity = Parity.None;
-                //mySerialPort.StopBits = StopBits.One;
-                //mySerialPort.DataBits = 8;
-                //mySerialPort.Handshake = Handshake.None;
-
-                //mySerialPort.Open();
-
-            }
-            catch (Exception e)
-            {
-                if(count == 5)
-                {
-                    return;
-                }
-                count++;
-                goto Line;
-            }
+            TcpClient server = new TcpClient("192.168.1.116", 23);
+            networkStream = server.GetStream(); //ethernet
         }
 
         private void Serial()
@@ -197,7 +171,7 @@ namespace WpfApp1
         int i1 = 0;
         private void Led1_Click(object sender, RoutedEventArgs e)
         {
-            if(i1 % 2 == 0)
+            if (i1 % 2 == 0)
             {
                 write("led1on\r");
             }
@@ -259,6 +233,6 @@ namespace WpfApp1
 
             i5++;
         }
-        
+
     }
 }
