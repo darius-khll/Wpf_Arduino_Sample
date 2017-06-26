@@ -61,6 +61,35 @@ namespace WpfApp1
             }
         }
 
+        private void Serial()
+        {
+            int count = 0;
+            Line:
+            try
+            {
+                string port = Port.Text;
+                mySerialPort = new SerialPort(port);
+
+                mySerialPort.BaudRate = 9600;
+                mySerialPort.Parity = Parity.None;
+                mySerialPort.StopBits = StopBits.One;
+                mySerialPort.DataBits = 8;
+                mySerialPort.Handshake = Handshake.None;
+
+                mySerialPort.Open();
+
+            }
+            catch (Exception e)
+            {
+                if (count == 5)
+                {
+                    return;
+                }
+                count++;
+                goto Line;
+            }
+        }
+
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {
             try
