@@ -31,8 +31,7 @@ namespace WpfApp1
 
         void Initial()
         {
-            TcpClient server = new TcpClient("192.168.1.116", 23);
-            networkStream = server.GetStream(); //ethernet
+            networkStream = new TcpItem().Initial("192.168.1.116");
 
             //Serial();
         }
@@ -114,7 +113,7 @@ namespace WpfApp1
             }
         }
 
-        public int i = 0;
+        public int index = 0;
         private void Blue_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -127,7 +126,7 @@ namespace WpfApp1
 
                 //Initial();
                 string dataSend = "H";
-                if (i % 2 == 0)
+                if (index % 2 == 0)
                     dataSend = "H";
                 else
                     dataSend = "L";
@@ -135,7 +134,7 @@ namespace WpfApp1
                 SendData(dataSend);
                 GetData();
 
-                i++;
+                index++;
 
             }
             catch (Exception)
