@@ -32,39 +32,9 @@ namespace WpfApp1
         void Initial()
         {
             networkStream = new TcpItem().Initial("192.168.1.116");
-
-            //Serial();
+            mySerialPort = new SerialItem().Serial(Port.Text);
         }
-
-        private void Serial()
-        {
-            int count = 0;
-            Line:
-            try
-            {
-                string port = Port.Text;
-                mySerialPort = new SerialPort(port);
-
-                mySerialPort.BaudRate = 9600;
-                mySerialPort.Parity = Parity.None;
-                mySerialPort.StopBits = StopBits.One;
-                mySerialPort.DataBits = 8;
-                mySerialPort.Handshake = Handshake.None;
-
-                mySerialPort.Open();
-
-            }
-            catch (Exception e)
-            {
-                if (count == 5)
-                {
-                    return;
-                }
-                count++;
-                goto Line;
-            }
-        }
-
+        
         private void Temperature_Click(object sender, RoutedEventArgs e)
         {
             try
