@@ -39,5 +39,7 @@ namespace WpfApp1
             }
             return mySerialPort;
         }
+
+
     }
 }

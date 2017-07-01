@@ -128,8 +128,7 @@ namespace WpfApp1
 
         void SendData(string data)
         {
-            SerialPort sp = mySerialPort;
-            sp.Write(data);
+            mySerialPort.Write(data);
         }
 
 
