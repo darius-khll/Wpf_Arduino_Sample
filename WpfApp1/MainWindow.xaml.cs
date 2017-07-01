@@ -50,8 +50,8 @@ namespace WpfApp1
                 GetData();
 
                 System.Threading.Thread.Sleep(1000);
-                MessageBox.Show(s);
-                s = "";
+                MessageBox.Show(dataReceiver);
+                dataReceiver = "";
             }
             catch (Exception)
             {
@@ -74,8 +74,8 @@ namespace WpfApp1
                 GetData();
 
                 System.Threading.Thread.Sleep(1000);
-                MessageBox.Show(s);
-                s = "";
+                MessageBox.Show(dataReceiver);
+                dataReceiver = "";
             }
             catch (Exception)
             {
@@ -118,12 +118,12 @@ namespace WpfApp1
             mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
 
-        public string s = "";
+        public string dataReceiver = "";
         void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
             string indata = sp.ReadExisting();
-            s += indata.ToString();
+            dataReceiver += indata.ToString();
         }
 
         void SendData(string data)
