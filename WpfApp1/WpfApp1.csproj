@@ -89,8 +89,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SerialItem.cs" />
-    <Compile Include="TcpItem.cs" />
+    <Compile Include="Services\SerialItem.cs" />
+    <Compile Include="Services\TcpItem.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
